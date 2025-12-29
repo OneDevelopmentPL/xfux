@@ -4,18 +4,10 @@ pkgrel=2
 pkgdesc="XFCE, but with animations and shadows. By OneDevelopment"
 arch=('any')
 depends=('xfce4-panel' 'xfce4-session' 'xfdesktop' 'picom-pijulius-git' 'python-pillow' 'tk')
-
+url="https://github.com/OneDevelopmentPL/xfux"
 # Pobieramy tylko pewne, lokalne pliki
-source=('xfux.desktop'
-        'xfux-logo.png'
-        'xfux-session'
-        'xfce4-panel-style.tar.bz2'
-        'xfce4-desktop.xml'
-        'xfux-wallpaper.png'
-        'picom.conf'
-        'xfux-splash')
-
-sha256sums=('SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP')
+source=('git+https://github.com/OneDevelopmentPL/xfux.git')
+sha256sums=('SKIP')
 
 package() {
   # 1. Skrypty i sesja
