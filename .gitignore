@@ -1,0 +1,12 @@
+# build / pacman
+pkg/
+src/
+*.pkg.tar.*
+*.log
+
+# editor
+*.swp
+*.tmp
+
+# system
+.DS_Store

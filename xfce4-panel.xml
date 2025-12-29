@@ -1,0 +1,137 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="configver" type="int" value="2"/>
+  <property name="panels" type="array">
+    <value type="int" value="1"/>
+    <value type="int" value="2"/>
+    <property name="dark-mode" type="bool" value="true"/>
+    <property name="panel-1" type="empty">
+      <property name="position" type="string" value="p=10;x=963;y=1060"/>
+      <property name="length" type="double" value="100"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="icon-size" type="uint" value="0"/>
+      <property name="size" type="uint" value="38"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="15"/>
+        <value type="int" value="14"/>
+        <value type="int" value="26"/>
+        <value type="int" value="25"/>
+        <value type="int" value="24"/>
+        <value type="int" value="27"/>
+        <value type="int" value="2"/>
+        <value type="int" value="1"/>
+        <value type="int" value="3"/>
+        <value type="int" value="4"/>
+        <value type="int" value="5"/>
+        <value type="int" value="6"/>
+      </property>
+      <property name="enable-struts" type="bool" value="true"/>
+      <property name="leave-opacity" type="uint" value="100"/>
+      <property name="mode" type="uint" value="0"/>
+      <property name="background-style" type="uint" value="0"/>
+      <property name="background-rgba" type="array">
+        <value type="double" value="0.20784313725490197"/>
+        <value type="double" value="0.51764705882352946"/>
+        <value type="double" value="0.89411764705882357"/>
+        <value type="double" value="1"/>
+      </property>
+      <property name="background-image" type="string" value="file:///home/iwo/Pobrane/xfux-logo.png"/>
+      <property name="enter-opacity" type="uint" value="100"/>
+      <property name="autohide-behavior" type="uint" value="0"/>
+    </property>
+    <property name="panel-2" type="empty">
+      <property name="position" type="string" value="p=4;x=1809;y=1056"/>
+      <property name="size" type="uint" value="38"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="length" type="double" value="7.395833333333333"/>
+      <property name="autohide-behavior" type="uint" value="0"/>
+      <property name="enable-struts" type="bool" value="false"/>
+    </property>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-14" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+      <property name="expand" type="bool" value="false"/>
+    </property>
+    <property name="plugin-24" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="17329953093.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-25" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="17329952992.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-26" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="17329952831.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-27" type="string" value="separator">
+      <property name="style" type="uint" value="2"/>
+    </property>
+    <property name="plugin-15" type="string" value="whiskermenu">
+      <property name="recent" type="array">
+        <value type="string" value="panel-preferences.desktop"/>
+        <value type="string" value="xfce-mouse-settings.desktop"/>
+        <value type="string" value="thunar.desktop"/>
+        <value type="string" value="xfce4-taskmanager.desktop"/>
+        <value type="string" value="firefox.desktop"/>
+        <value type="string" value="code.desktop"/>
+        <value type="string" value="kdesystemsettings.desktop"/>
+        <value type="string" value="xfce-wmtweaks-settings.desktop"/>
+        <value type="string" value="xfce4-accessibility-settings.desktop"/>
+        <value type="string" value="spotify.desktop"/>
+      </property>
+      <property name="button-title" type="string" value=""/>
+      <property name="show-button-title" type="bool" value="false"/>
+      <property name="button-icon" type="string" value="/home/iwo/Pobrane/xfux-logo.png"/>
+      <property name="view-mode" type="int" value="0"/>
+      <property name="position-categories-horizontal" type="bool" value="false"/>
+      <property name="position-categories-alternate" type="bool" value="false"/>
+      <property name="position-commands-alternate" type="bool" value="true"/>
+      <property name="position-search-alternate" type="bool" value="true"/>
+      <property name="position-profile-alternate" type="bool" value="false"/>
+      <property name="menu-width" type="int" value="548"/>
+      <property name="menu-height" type="int" value="552"/>
+      <property name="menu-opacity" type="int" value="100"/>
+      <property name="profile-shape" type="int" value="0"/>
+      <property name="show-button-icon" type="bool" value="true"/>
+      <property name="launcher-show-tooltip" type="bool" value="true"/>
+      <property name="launcher-show-name" type="bool" value="true"/>
+      <property name="category-show-name" type="bool" value="true"/>
+    </property>
+    <property name="plugin-2" type="string" value="tasklist">
+      <property name="show-labels" type="bool" value="false"/>
+      <property name="show-handle" type="bool" value="false"/>
+      <property name="show-tooltips" type="bool" value="true"/>
+      <property name="sort-order" type="uint" value="0"/>
+      <property name="grouping" type="bool" value="true"/>
+      <property name="middle-click" type="uint" value="1"/>
+      <property name="flat-buttons" type="bool" value="true"/>
+    </property>
+    <property name="plugin-1" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+      <property name="expand" type="bool" value="true"/>
+    </property>
+    <property name="plugin-3" type="string" value="clock"/>
+    <property name="plugin-4" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+    </property>
+    <property name="plugin-5" type="string" value="systray">
+      <property name="known-legacy-items" type="array">
+        <value type="string" value="aplet networkmanager"/>
+        <value type="string" value="nawiązano bezprzewodowe połączenie sieciowe wi-fi „wadowicenet_2.4ghz_eky33”: wadowicenet_2.4ghz_eky33 (76%)"/>
+        <value type="string" value="nawiązano bezprzewodowe połączenie sieciowe wi-fi „wadowicenet_2.4ghz_eky33”: wadowicenet_2.4ghz_eky33 (74%)"/>
+      </property>
+      <property name="icon-size" type="int" value="28"/>
+      <property name="single-row" type="bool" value="false"/>
+      <property name="hide-new-items" type="bool" value="false"/>
+      <property name="menu-is-primary" type="bool" value="false"/>
+      <property name="symbolic-icons" type="bool" value="false"/>
+    </property>
+    <property name="plugin-6" type="string" value="power-manager-plugin"/>
+  </property>
+</channel>

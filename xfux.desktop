@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Name=XFUX
+Comment=Better xfce4 version, by OneDevelopment!
+Exec=/usr/bin/xfux-session
+Icon=xfux-logo
+Type=Application
+DesktopNames=XFCE

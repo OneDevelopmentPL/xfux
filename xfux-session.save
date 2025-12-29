@@ -1,0 +1,33 @@
+#!/bin/bash
+export XDG_CONFIG_HOME="$HOME/.config/xfux"
+mkdir -p "$XDG_CONFIG_HOME/xfce4/xfconf/xfce-perchannel-xml"
+
+# 1. Splash Screen na start
+/usr/bin/xfux-splash &
+
+# 2. Kopiowanie bazowych konfiguracji
+cp /usr/share/xfux/xfce4-panel.xml "$XDG_CONFIG_HOME/xfce4/xfconf/xfce-perchannel-xml/"
+cp /usr/share/xfux/xfce4-desktop.xml "$XDG_CONFIG_HOME/xfce4/xfconf/xfce-perchannel-xml/"
+xfconf-query -c xfwm4 -p /general/theme -n -t string -s "Xfux"
+
+# 3. WYŁĄCZENIE KOMPOZYTORA XFCE (Klucz do animacji Picoma)
+# Czekamy ułamek sekundy, aż sesja ruszy i wyłączamy wbudowane efekty
+(
+  sleep 1
+  xfconf-query -c xfwm4 -p /general/use_compositing -n -t bool -s false
+) &
+
+# 4. Start Picoma z Twoim konfigiem
+picom --config /usr/share/xfux/picom.conf --backend glx &
+
+# 5. WYMUSZENIE TAPETY na wszystkich monitorach
+(
+  sleep 2
+  monitors=$(xfconf-query -c xfce4-desktop -p /backdrop -l | grep -E 'screen[0-9]/monitor.*last-image$')
+  for m in $monitors; do
+     xfconf-query -c xfce4-desktop -p "$m" -n -t string -s "/usr/share/backgrounds/xfux/xfux-wallpaper.png"
+  done
+) &
+
+# 6. Restart panela (żeby systray/ikony się pojawiły)
+(sleep 3

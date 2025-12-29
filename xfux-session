@@ -1,0 +1,48 @@
+#!/bin/bash
+export XDG_CONFIG_HOME="$HOME/.config/xfux"
+mkdir -p "$XDG_CONFIG_HOME/xfce4/xfconf/xfce-perchannel-xml"
+
+# 1. Splash Screen na start
+/usr/bin/xfux-splash &
+
+# 2. Kopiowanie bazowych konfiguracji
+cp /usr/share/xfux/xfce4-panel.xml "$XDG_CONFIG_HOME/xfce4/xfconf/xfce-perchannel-xml/"
+cp /usr/share/xfux/xfce4-desktop.xml "$XDG_CONFIG_HOME/xfce4/xfconf/xfce-perchannel-xml/"
+xfconf-query -c xfwm4 -p /general/theme -n -t string -s "Xfux"
+
+# 2. Wymuszenie wczytania ustawień panelu z Twojego pliku
+if [ -f /usr/share/xfux/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml ]; then
+    mkdir -p ~/.config/xfce4/xfconf/xfce-perchannel-xml/
+    cp /usr/share/xfux/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+fi
+
+xfce4-panel-profiles load /usr/share/xfux/xfux-panel-style.tar.bz2
+
+# 3. WYŁĄCZENIE KOMPOZYTORA XFCE (Klucz do animacji Picoma)
+# Czekamy ułamek sekundy, aż sesja ruszy i wyłączamy wbudowane efekty
+(
+  sleep 1
+  xfconf-query -c xfwm4 -p /general/use_compositing -n -t bool -s false
+) &
+
+# 4. Start Picoma z Twoim konfigiem
+picom --config /usr/share/xfux/picom.conf --backend glx &
+
+# Wymuszenie tapety na wszystkich możliwych kanałach monitorów
+(
+  sleep 3
+  # Pobieramy listę wszystkich ścieżek do tapet i ustawiamy je na nasz plik
+  for path in $(xfconf-query -c xfce4-desktop -p /backdrop -l | grep "last-image"); do
+    xfconf-query -c xfce4-desktop -p "$path" -s "/usr/share/backgrounds/xfux/xfux-wallpaper.png"
+  done
+  xfdesktop --reload
+) &
+# Wymuszenie tapety konkretnie dla Twojego monitora eDP-1
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitoreDP-1/workspace0/last-image -n -t string -s "/usr/share/backgrounds/xfux/xfux-wallpaper.png"
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitoreDP-1/workspace0/image-style -n -t int -s 5
+xfdesktop --reload
+
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image -n -t string -s "/usr/share/backgrounds/xfux/xfux-wallpaper.png"
+# 6. Restart panela (żeby systray/ikony się pojawiły)
+(sleep 3.5 && xfce4-panel -r) &
+exec startxfce4
